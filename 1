@@ -1,0 +1,76 @@
+#include<stdio.h>
+#include<stdlib.h>
+float biggest(float x,float y,float z);
+float smallest(float x,float y,float z);
+float middle(float x,float y,float z);
+int main(){
+	printf("这是一个将三个数从大到小或从小到大排序的程序\n");
+	printf("从大到小排列请按1，并单击回车\n从小到大排序请按2，并单击回车\n"); 
+	int choice; 
+	scanf("%d",&choice);
+	printf("请输入的三个数，并用空格隔开，完成后按回车键\n");
+	float x;
+	float y;
+	float z;
+	scanf("%f%f%f",&x,&y,&z);
+    float f=biggest(x,y,z);
+    float t=smallest(x,y,z);
+    float s=middle(x,y,z);
+    if(choice==1){
+	printf("三数从大到小排序结果为：\n%f ",f);
+    printf("%f ",s);
+	printf("%f\n",t);
+	}
+	else if(choice==2){
+	printf("三数从小到大排序结果为：\n%f ",t);
+    printf("%f ",s);
+	printf("%f\n",f);
+	}
+    else{
+    	printf("请输入正确编号\n");
+	}
+   system("pause");
+   return 0;
+}   
+float biggest(float x,float y,float z)
+{  float a;
+   if(x>=y&&x>=z)
+	{ a=x; 
+	} 
+	else if(y>=x&&y>=z)
+	{ a=y;
+	}
+	else
+	{ a=z;
+	}
+	return a;
+}
+float smallest(float x,float y,float z)
+{  float a;
+   if(x<=y&&x<=z)
+	{ a=x; 
+	} 
+	else if(y<=x&&y<=z)
+	{ a=y;
+	}
+	else
+	{ a=z;
+	}
+	return a;
+}
+float middle(float x,float y,float z)
+{  float f=biggest(x,y,z); 
+   float t=smallest(x,y,z);
+   float a;
+   if(x<f&&x>t)
+	{ a=x; 
+	} 
+	else if(y<f&&y>t)
+	{ a=y;
+	}
+	else if(z<f&&z>t)
+	{ a=z;
+	}
+	return a;         
+}
+
